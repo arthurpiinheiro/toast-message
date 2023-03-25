@@ -1,0 +1,147 @@
+.alert-container {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  z-index: 9999;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .alert {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-left: 20px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+
+    &.alert-dismissible {
+      padding-right: 0;
+    }
+  }
+
+  p {
+    margin-bottom: initial;
+  }
+
+  .alert-message {
+    text-align: left;
+    padding: 15px;
+    display: inline-block;
+    max-width: 768px;
+
+    .alert-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .alert-description {
+      font-size: .8rem;
+    }
+  }
+
+  button {
+    padding: .75rem 1.25rem;
+    background: none;
+    border: 1px solid transparent;
+    color: inherit;
+    margin-left: auto;
+    transition: .3s;
+
+    &.details {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      opacity: .6;
+      transition: .3s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      &:not(&.close) {
+        border-color: rgba(0, 0, 0, .2);
+      }
+
+      &.close {
+        background: rgba(0, 0, 0, .1);
+      }
+    }
+
+    &.close {
+      margin-right: 5px;
+      border-radius: 100%;
+    }
+  }
+
+  &.warning {
+    .alert-message {
+      max-width: 250px;
+    }
+  }
+}
+
+.fadeIn {
+  margin-top: 15px;
+  font-size: 21px;
+  text-align: center;
+
+  -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein .5s; /* Firefox < 16 */
+  -ms-animation: fadein .5s; /* Internet Explorer */
+  -o-animation: fadein .5s; /* Opera < 12.1 */
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
