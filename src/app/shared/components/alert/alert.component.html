@@ -6,22 +6,8 @@
       <p class="alert-description" [innerHTML]="item.message"></p>
     </div>
 
-    <button type="button" class="details" *ngIf="item.details" (click)="openModal(content, item.id, item.details)">
-      <span>Mostrar</span>
-      <span aria-hidden="true">Detalhes</span>
-    </button>
     <button type="button" class="close" (click)="closeAlert(item.id)" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 </div>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Detalhes do erro:</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
-  </div>
-  <div class="modal-body">
-    <ngx-json-viewer [json]="details"></ngx-json-viewer>
-  </div>
-</ng-template>

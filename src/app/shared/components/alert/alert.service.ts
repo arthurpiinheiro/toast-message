@@ -11,7 +11,7 @@ export class AlertService {
   alertStateSubject: Subject<AlertModel[]> = new Subject<AlertModel[]>();
   timers: Array<AlertModel> = [];
 
-  alertShow(message: AlertModel, timeOut: boolean = true): void {
+  show(message: AlertModel, timeOut: boolean = true): void {
     const hash = this.generateHash();
     let timer = {
       ...message,

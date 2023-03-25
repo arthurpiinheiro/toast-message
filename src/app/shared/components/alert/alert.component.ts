@@ -2,7 +2,6 @@ import {Component, ElementRef, OnInit, Renderer2, TemplateRef} from '@angular/co
 import {Observable} from "rxjs";
 import {AlertService} from "@shared/components/alert/alert.service";
 import {AlertModel} from "@shared/models/alert.model";
-import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-alert',
@@ -12,11 +11,9 @@ import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 export class AlertComponent implements OnInit {
 
   alerts$!: Observable<AlertModel[]>;
-  alertModalRef!: NgbModalRef;
   details!: any;
 
   constructor(
-    private _modalService: NgbModal,
     private _alertService: AlertService,
     private _elem: ElementRef,
     private _renderer: Renderer2
@@ -29,21 +26,6 @@ export class AlertComponent implements OnInit {
 
   getMessages(): void {
     this.alerts$ = this._alertService.alertStateSubject;
-  }
-
-  openModal(content: TemplateRef<any>, id: string, details: any): void {
-    this.details = details;
-    const options = {
-      ariaLabelledBy: 'modal-basic-title',
-      scrollable: true,
-      size: 'xl'
-    };
-    this.alertModalRef = this._modalService.open(content, options);
-    this.closeAlert(id);
-  }
-
-  closeModal() {
-    this.alertModalRef.close();
   }
 
   closeAlert(id: string): void {
